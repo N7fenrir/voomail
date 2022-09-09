@@ -105,7 +105,7 @@ function doRegister() {
 <template>
   <main>
     <div class="container">
-      <form @submit.prevent="login">
+      <form>
         <h2 class="mb-3">Login</h2>
         <div class="input">
           <label for="email">Mail-trap</label>
@@ -130,15 +130,16 @@ function doRegister() {
         <div class="alternative-option mt-4">
           You don't have an account? <span @click="doRegister">Register</span>
         </div>
-        <button
+      </form>
+      <button
           @click="doLogin"
           type="submit"
           class="mt-4 btn-pers"
           id="login_button"
-        >
-          Login
-        </button>
-      </form>
+      >
+        Login
+      </button>
+
       <ul v-if="errors.length > 0">
         <li
           style="color: red"

@@ -5,9 +5,9 @@ async function connectToDB(): Promise<Client> {
     const client = new Client({
       user: 'postgres',
       password: 'root',
-      host: 'localhost',
+      host: 'postgres',
       port: 5432,
-      database: 'kitty',
+      database: 'root',
     });
     await client.connect();
     return client;
