@@ -1,8 +1,10 @@
 import { Command } from 'commander';
 import { dirname } from 'path';
 import { version } from '../package.json';
+import { IConfigModeContainer } from './models/IConfig';
 import { ConfigLoader } from './config/ConfigLoader';
-import {IConfigModeContainer} from "./models/IConfig";
+import MailService from './service/MailService';
+import { connectToDB } from './service/DBService';
 
 const command = new Command('mail-service-backend');
 
@@ -12,7 +14,10 @@ interface ICmdLineArgs {
 
 async function startServer(options: ICmdLineArgs) {
   console.log('Starting mail-service-backend...');
-  getConfigFile(options.config);
+  const config = getConfigFile(options.config);
+  const dbClient = await connectToDB();
+  const mailService = new MailService(config, dbClient);
+  await mailService.start();
 }
 
 export function getConfigFile(filepath: string): IConfigModeContainer {
