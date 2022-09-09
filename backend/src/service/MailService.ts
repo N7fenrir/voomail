@@ -13,6 +13,7 @@ import {
 } from '../statics/SQLQueries';
 import nodemailer from 'nodemailer';
 import bodyParser from 'body-parser';
+import * as path from "path";
 
 interface IMailBody {
   content: string;
@@ -214,6 +215,16 @@ class MailService {
         }
         response.status(status).send(`${contactDeleted}`).end();
       }
+    });
+
+    server.use('/', express.static('dist'));
+
+    server.get('/', (_, response: Response) => {
+      response.sendFile(path.join(__dirname + '/dist/index.html'));
+    });
+
+    server.get('*', function (_, response: Response) {
+      response.status(404).send('Page Nor Found 404');
     });
 
     /*** ------ **/
