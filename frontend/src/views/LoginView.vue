@@ -37,9 +37,7 @@ nav {
     place-items: flex-start;
     flex-wrap: wrap;
   }
-
 }
-
 
 #app {
   margin: 0 auto;
@@ -50,7 +48,6 @@ nav {
   justify-items: center;
   font-weight: normal;
 }
-
 
 a,
 .green {
@@ -77,27 +74,25 @@ a,
     padding: 0 2rem;
   }
 }
-
 </style>
-
 
 <template>
   <div id="app">
-  <main style="margin: 10%">
-    <header>
-      <img
+    <main style="margin: 10%">
+      <header>
+        <img
           alt="Vue logo"
           class="logo"
           src="@/assets/logo.svg"
           width="125"
           height="125"
-      />
+        />
 
-      <div class="wrapper">
-        <WelcomeMessage msg="Voo Mail " />
-      </div>
-    </header>
-  </main>
-  <LoginForm />
+        <div class="wrapper">
+          <WelcomeMessage msg="Voo Mail " />
+        </div>
+      </header>
+    </main>
+    <LoginForm />
   </div>
 </template>

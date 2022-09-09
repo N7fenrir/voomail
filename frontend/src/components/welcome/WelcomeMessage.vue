@@ -7,9 +7,7 @@ defineProps<{
 <template>
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
-    <h3>
-      Login with your MailTrap user, pass
-    </h3>
+    <h3>Login with your MailTrap user, pass</h3>
   </div>
 </template>
 
