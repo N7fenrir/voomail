@@ -83,6 +83,7 @@ ALTER TABLE "public"."users" OWNER TO "postgres";
 -- ----------------------------
 BEGIN;
 INSERT INTO "public"."users" ("username", "password") VALUES ('5da10e05722dbc', '527a3fbfb41332');
+INSERT INTO "public"."users" ("username", "password") VALUES ('7b242232cfd918', '0ad5af79afc9a8');
 COMMIT;
 
 -- ----------------------------
