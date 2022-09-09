@@ -1,0 +1,52 @@
+{
+  "name": "voomail_backend",
+  "version": "1.0.0",
+  "description": "VooMailBackend",
+  "main": "index.ts",
+  "scripts": {
+    "start": "node -r ts-node/register ./src/index.ts start -c ./configs/config.json",
+    "build": "tsc",
+    "lint": "eslint . --ext .ts",
+    "lint-fix": "eslint . --fix",
+    "make": "npm run build && npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/N7fenrir/VooMail.git"
+  },
+  "keywords": [
+    "Node.js"
+  ],
+  "author": "Vighnesh Bheed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/N7fenrir/VooMail/issues"
+  },
+  "homepage": "https://github.com/N7fenrir/VooMail#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.15.6",
+    "@types/commander": "^2.12.2",
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/nodemailer": "^6.4.5",
+    "@types/pg-pool": "^2.0.3",
+    "@typescript-eslint/eslint-plugin": "^4.28.0",
+    "@typescript-eslint/parser": "^4.28.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jsdoc": "^33.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.3.1",
+    "ts-jest": "^27.0.5",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "commmander": "0.0.1-security",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemailer": "^6.7.8",
+    "pg": "^8.8.0"
+  }
+}
