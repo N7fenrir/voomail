@@ -89,7 +89,7 @@ function updatePreview(event: any) {
           cols="25"
           rows="5"
           class="form-control"
-          required="required"
+          required="true"
         >
         </textarea>
       </div>
