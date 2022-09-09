@@ -1,56 +1,52 @@
 <script setup lang="ts">
-import {ref} from 'vue';
-import type { Ref } from 'vue'
+import { ref } from "vue";
 // @ts-ignore
-import * as qs from 'qs';
+import * as qs from "qs";
+import type { Ref } from "vue";
 import axios from "axios";
 import router from "@/router";
 
-let username = ref('');
-let password = ref('');
-let errors: Ref<string[]> = ref([])
+let username = ref("");
+let password = ref("");
+let errors: Ref<string[]> = ref([]);
 
 async function doLogin() {
   errors.value = [];
-  const data = {user: username.value, pass: password.value}
-  if(data.user !== '' && data.pass !== ''){
+  const data = { user: username.value, pass: password.value };
+  if (data.user !== "" && data.pass !== "") {
     const options = {
-      method: 'post',
-      url: 'http://localhost:8080/login',
+      method: "post",
+      url: "http://localhost:8080/login",
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        "Content-Type": "application/x-www-form-urlencoded",
       },
-      data : qs.stringify({
-        'user': `${username.value}`,
-        'pass': `${password.value}`
-      })
+      data: qs.stringify({
+        user: `${username.value}`,
+        pass: `${password.value}`,
+      }),
     };
     const res = await axios(options);
-    if(res.status === 200){
-      await router.push('/mailClient');
+    if (res.status === 200) {
+      await router.push("/mailClient");
     } else {
-      errors.value.push(res.data)
+      errors.value.push(res.data);
     }
   } else {
-    if(data.user === '' || !data.user){
-      errors.value.push('Please enter a username');
+    if (data.user === "" || !data.user) {
+      errors.value.push("Please enter a username");
     }
-    if(data.pass === '' || !data.pass){
-      errors.value.push('Please enter a password');
+    if (data.pass === "" || !data.pass) {
+      errors.value.push("Please enter a password");
     }
   }
 }
 
 function doRegister() {
-  window.location.href = 'https://mailtrap.io';
+  window.location.href = "https://mailtrap.io";
 }
-
 </script>
 
-
-
 <style>
-
 .container {
   width: 400px;
   max-width: 95%;
@@ -104,9 +100,7 @@ function doRegister() {
   color: #0d6efd;
   cursor: pointer;
 }
-
 </style>
-
 
 <template>
   <main>
@@ -116,32 +110,37 @@ function doRegister() {
         <div class="input">
           <label for="email">Mail-trap</label>
           <input
-              v-model="username"
-              class="form-control"
-              type="text"
-              name="email"
-              placeholder="username"
+            v-model="username"
+            class="form-control"
+            type="text"
+            name="email"
+            placeholder="username"
           />
         </div>
         <div class="input">
           <label for="password">Password</label>
           <input
-              v-model="password"
-              class="form-control"
-              type="password"
-              name="password"
-              placeholder="password"
+            v-model="password"
+            class="form-control"
+            type="password"
+            name="password"
+            placeholder="password"
           />
         </div>
         <div class="alternative-option mt-4">
           You don't have an account? <span @click="doRegister">Register</span>
         </div>
-        <button @click="doLogin" type="submit" class="mt-4 btn-pers" id="login_button">
+        <button
+          @click="doLogin"
+          type="submit"
+          class="mt-4 btn-pers"
+          id="login_button"
+        >
           Login
         </button>
       </form>
       <ul v-if="errors.length > 0">
-        <li style="color: red" v-for="err in errors.values()">{{err}}</li>
+        <li style="color: red" v-for="err in errors.values()">{{ err }}</li>
       </ul>
     </div>
   </main>
