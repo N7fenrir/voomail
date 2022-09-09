@@ -10,11 +10,6 @@ export default {
 
 let users: Ref<Record<string, string>[]> = ref([]);
 let loading = ref(false);
-let fields: Ref<Record<string, number | boolean | string>[]> = ref([
-  { id: 1, key: "name", label: "Name", type: "text", editable: true },
-  { id: 2, key: "email", label: "Email", type: "email", editable: true },
-  { id: 3, key: "phone", label: "Phone", type: "text", editable: true },
-]);
 
 onBeforeMount(async () => {
   loading.value = true;

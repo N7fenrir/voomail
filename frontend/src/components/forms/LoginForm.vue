@@ -140,7 +140,13 @@ function doRegister() {
         </button>
       </form>
       <ul v-if="errors.length > 0">
-        <li style="color: red" v-for="err in errors.values()">{{ err }}</li>
+        <li
+          style="color: red"
+          v-for="(err, index) in errors.values()"
+          v-bind:key="index"
+        >
+          {{ err }}
+        </li>
       </ul>
     </div>
   </main>

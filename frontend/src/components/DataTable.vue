@@ -95,7 +95,7 @@ onMounted(() => {
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, index) in tableData.values()">
+        <tr v-for="(item, index) in tableData.values()" v-bind:key="index">
           <th scope="row">
             <input
               class="noBordersInput"

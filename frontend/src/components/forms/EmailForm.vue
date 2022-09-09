@@ -141,8 +141,9 @@ function updatePreview(event: any) {
       <ul class="list-group" v-if="serverMessage.length > 0">
         <li
           class="error-list list-group-item"
-          v-for="message in serverMessage.values()"
+          v-for="(message, index) in serverMessage.values()"
           :class="{ 'success-list': message.status }"
+          v-bind:key="index"
         >
           {{ message.message }}
         </li>
